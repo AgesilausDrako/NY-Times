@@ -3,9 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Hypothetical New York Times</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
@@ -13,10 +12,13 @@
 
 <div class="container">
 	<div class="jumbotron">
-		<h1>New York Times Search</h1>
+		<h1><span class="fa fa-newspaper-o"></span>&nbsp;
+		<img src="assets/images/NYTLogoLarge.png">
+		</h1>
 	</div>
 	<div class="panel panel-primary">
-		<div class="panel-heading">Search Parameters</div>
+		<div class="panel-heading">
+		<span class="glyphicon glyphicon-list-alt"></span>&nbsp;Search Parameters</div>
 		<div class="panel-body">
 			<div class="form">
 				<form>
@@ -41,11 +43,15 @@
 					<input type="text" class="form-control" id="end">
 				</div>
 				</form>
-				<button type="button" class="btn btn-primary">Search</button>
-				<button type="button" class="btn btn-primary">Clear Results</button>
+				<button type="button" id="search-button" class="btn btn-primary">
+				<span class="glyphicon glyphicon-search"></span>&nbsp;Search</button>
+				<button type="button" id="clear" class="btn btn-primary">
+				<span class="glyphicon glyphicon-trash"></span>&nbsp;Clear Results</button>
+
 			</div>
 		</div>
-		<div class="panel-heading">Top Articles</div>
+		<div class="panel-heading">
+		<span class="glyphicon glyphicon-th"></span>&nbsp;Top Articles</div>
 		<div class="panel-body"></div>
 	</div>
 </div>
@@ -53,6 +59,6 @@
 
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript" src="assets/javascript/app.js"></script>	
+	<script type="text/javascript" src="assets/javascript/clay.js"></script>	
 </body>
 </html>
