@@ -1,31 +1,22 @@
 $(document).ready(function(){
-	var search = $("#search");
-	var limit = $("#records");
-	var yearB = $("#start");
-	var yearE = $("#end");
+	
 
 	$("#button-search").click(function(){
-
-	var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-		if (yearB == null || yearE == null) {
-			url += '?' + $.param({
-			  'api-key': "d458e2def8dc4f8dbd1a70891929e0f2",
-			  'q': search,
-			  'page': limit/10-1
-			});
-		} else {
-			url += '?' + $.param({
-			  'api-key': "d458e2def8dc4f8dbd1a70891929e0f2",
-			  'q': search,
-			  'page': limit/10-1,
-			  'begin_date': yearB,
-			  'end_date': yearE
-			});
-		}
+		var search = $("#search-term");
+		var limit = $("#records");
+		var yearB = $("#start");
+		var yearE = $("#end");
+		var queryUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+			
+			queryUrl +="?&api-key=d458e2def8dc4f8dbd1a70891929e0f2&q=" + search + "&page=" + limit +
+						"&begin_date=" + yearB + "&end_date=" + yearE;
+	
+			
+	
 			$.ajax({
-			  url: url,
+			  url: queryUrl,
 			  method: 'GET',
-			}).done(function(result) {
+			}).done(function(response) {
 			  console.log(result);
 			}).fail(function(err) {
 			  throw err;
