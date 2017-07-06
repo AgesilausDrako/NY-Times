@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
 
+
 	$("#search-button").click(function(){
 		var search = $("#search").val().trim();
 		console.log(search);
@@ -32,7 +33,7 @@ $(document).ready(function(){
 		$.ajax({
 			  url: url,
 			  method: 'GET',
-			}).done(function(result) {
+			}).done(function(response) {
 			  console.log(result);
 			var results = result.docs;
 
