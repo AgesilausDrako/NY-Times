@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
 
-
 	$("#search-button").click(function(){
 		var search = $("#search").val().trim();
 		console.log(search);
@@ -17,7 +16,7 @@ $(document).ready(function(){
 			url += '?' + $.param({
 			  'api-key': "d458e2def8dc4f8dbd1a70891929e0f2",
 			  'q': search,
-			  'page': limit
+			  'page': 1
 			});
 		} else {
 			url += '?' + $.param({
@@ -33,24 +32,26 @@ $(document).ready(function(){
 		$.ajax({
 			  url: url,
 			  method: 'GET',
-			}).done(function(response) {
+			}).done(function(result) {
 			  console.log(result);
-			var results = result.docs;
+			var results = result.response.docs;
 
-			for (i=0; i<results.length; i++) {
+			for (i=0; i<limit; i++) {
 				var articleDiv = $("<div>");
 				var p = $("<p>");
 				p.text(results[i].lead_paragraph);
 				var a = $("<a>");
 				a.attr("href", results[i].web_url);
+				a.text(results[i].web_url);
 
 
-				articleDiv.append(p);
 				articleDiv.append(a);
+				articleDiv.append(p);
 
+			$("#topArticles").prepend(articleDiv);
 			}
 
-			$("#topArticles").prepend(articleDiv);	
+	
 					
 		});
 
